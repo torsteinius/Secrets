@@ -3,3 +3,4 @@ secrets.txt
 *.html
 *.txt
 *.xml
+*.pyc
