@@ -27,7 +27,8 @@ class SecretsCls:
                 line = line.strip()
                 if line == '':
                     continue    
-                key, value = line.split('=')
+                #key, value = line.split('=')
+                key, value = line.split('=', 1)
                 self.secrets[key] = value
         
         # Set the path back to the original working directory
@@ -35,6 +36,12 @@ class SecretsCls:
     
     #########################################
     def getSecret(self, key):
-        return self.secrets[key]
+        try:
+            value = self.secrets[key]
+        except:
+            print('Secret not found: ' + key)
+            raise Exception('Secret not found: ' + key)
+        return value
+        #return self.secrets[key]
     
 
